@@ -7,12 +7,12 @@ class SessionController < ApplicationController
         if user
           if user.authenticate(params[:password])
               session[:user_id] = user.id
-              render json: user
+              render json: user, status: :ok
           else
-            render json: {error: "Login Error"}
+            render json: {error: "Login Error"}, status: :unauthorized
           end
         else
-          render json: {error: "Login Error"}
+          render json: {error: "Login Error"}, status: :unauthorized
         end
     end
 

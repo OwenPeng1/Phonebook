@@ -15,6 +15,7 @@ const [deleteMode, setDeleteMode] = useState(false)
     return(
         <main>
             <h1>Hello {currentUser.name}</h1>
+            <div id="contacts">
             <ul>
                 {contacts.map(items => {
                     if (letterList.includes(items.firstname[0])){
@@ -28,9 +29,10 @@ const [deleteMode, setDeleteMode] = useState(false)
                         )}
                 })}
             </ul>
-            <NavLink exact to= "/create">Create Contact</NavLink>
-            <NavLink exact to= "/favorite">Favorite</NavLink>
-            <button onClick = {toggleDelete}>Edit</button>
+            </div>
+            <NavLink className="contactButtons" id="createContact"exact to= "/create">Create</NavLink>
+            <NavLink className="contactButtons" id="directFavorite" exact to= "/favorite">Favorites</NavLink>
+            <button className="contactButtons" id="deleteButton" onClick = {toggleDelete}>Delete</button>
         </main>
     )
 

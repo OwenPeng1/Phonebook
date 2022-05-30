@@ -7,6 +7,9 @@ ul {
 
 #header{
   background-color: #DCDCDC;
+  color: black;
+  width   : 250px;
+  text-align:center
 }
 
 #favoriteList > li{
@@ -16,4 +19,198 @@ ul {
 #favoriteCard{
   text-align: center;
   margin: 0 20px;
+  border: 1px solid #d48e24;
+  border-radius: 5px;
 }
+
+body{
+  background-image: url("https://static.vecteezy.com/system/resources/previews/005/263/636/non_2x/contact-us-concept-icons-such-as-mobile-phone-e-mail-address-chat-global-communication-on-dark-blue-background-for-presentation-web-banner-article-business-and-network-connection-and-company-free-vector.jpg");
+  color: #d48e24;
+  background-size: cover;
+}
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+a{
+  background-color: #FFFAF0;
+}
+
+.Login{
+  margin: 200px 200px;
+}
+
+#contacts{
+  margin: 0px 400px;
+}
+
+.contactCard{
+  display: flex;
+  height: 50px
+}
+
+.contactCardchild{
+  flex:1;
+}
+
+#contactDelete{
+  height: 20px;
+  margin: 13px 0px;
+  background-color: #FF4500;
+  border: none;
+  color: black
+}
+
+#contactName{
+  margin: 5px
+}
+
+#createContact{
+  position:relative;
+  bottom: 500px;
+  left: 50px
+}
+
+.contactButtons{
+  background-color: #1b2f47;
+  color: #d48e24;
+  font-size:40px;
+  border:none
+}
+
+#directFavorite{
+  position:relative;
+  bottom: 300px;
+  right: 63px
+}
+
+#deleteButton{
+  position:relative;
+  bottom: 100px;
+  right: 220px
+}
+
+#welcomeLogin{
+  font-size:50px
+}
+
+#loginForm{
+  font-size: 25px
+}
+
+.loginInput{
+  font-size:20px
+}
+
+#logout{
+  position:relative;
+  left:1725px;
+  top:10px;
+  background-color: #1b2f47;
+  color: #d48e24;
+  border:none
+}
+
+#largeDisplay{
+  display:flex
+}
+
+.largeDisplayChild{
+  flex:1;
+}
+
+#infoDiv{
+  position:relative;
+  right: 500px
+}
+
+#contactsButton{
+  background-color: #1b2f47;
+  color: #d48e24;
+  border:none;
+  font-size: 40px;
+  position:relative;
+  top: 200px;
+  left: 110px
+}
+
+#favoriteButton{
+  background-color: #1b2f47;
+  color: #d48e24;
+  border:none;
+  font-size: 40px;
+  position: relative;
+  top: 450px;
+  right: 50px
+}
+
+#signUp{
+  background-color: #1b2f47;
+  color: #d48e24;
+  border:none;
+  font-size: 30px
+}
+
+#createUser{
+  position: relative;
+  top: 160px;
+  left: 200px;
+}
+
+#createUserHeader{
+  font-size:50px
+}
+
+#createForm{
+  font-size: 25px
+}
+
+.createInput{
+  font-size:20px
+}
+
+#doneCreate{
+  background-color: #1b2f47;
+  color: #d48e24;
+  border:none;
+  font-size: 30px
+}
+
+#favoriteContacts{
+  background-color: #1b2f47;
+  color: #d48e24;
+  border:none;
+  font-size: 30px
+}
+
+#contactCreate{
+  position: relative;
+  top: 100px;
+  left: 250px
+}
+
+button{
+  background-color: #1b2f47;
+  color: #d48e24;
+  border:none;
+}
+
+a{
+  background-color: #1b2f47;
+  color: #d48e24;
+  border:none;
+}
+
+button:hover{
+  color: #1b2f47;
+  background-color: #d48e24;
+  border-radius: 2px;
+}
+
+a:hover{
+  color: #1b2f47;
+  background-color: #d48e24;
+  border-radius: 2px;
+}
+

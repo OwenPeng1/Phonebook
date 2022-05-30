@@ -1,5 +1,7 @@
 import React, {useState} from "react"
 import {NavLink} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function CreateContact({fetchContacts, currentUser}){
     const [createContact, setCreateContact]= useState({firstname:"", lastname:"",
@@ -21,11 +23,13 @@ function CreateContact({fetchContacts, currentUser}){
             .then(user=>{
                 console.log(createContact)
                 fetchContacts()
+                toast("Created New Contact")
                     }) 
                 }
 
     return(
         <main>
+            <div id="contactCreate">
             <h1>Create Contact</h1>
             <form onSubmit={handleSubmit}>
                 <h2>First Name</h2>
@@ -43,6 +47,18 @@ function CreateContact({fetchContacts, currentUser}){
                 <button type="submit">Submit</button>
             </form>
             <NavLink exact to="./contacts">Contacts</NavLink>
+            </div>
+            <ToastContainer
+                    position="bottom-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    />
         </main>
     )
 

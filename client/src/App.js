@@ -7,6 +7,7 @@ import Contacts from "./Contacts"
 import ContactDisplay from "./ContactDisplay"
 import CreateContact from "./CreateContact"
 import Favorite from "./Favorite"
+import {useHistory} from 'react-router-dom';
 
 function App() {
 
@@ -28,6 +29,16 @@ const [favorite, setFavorite]= useState([])
       .then(setFavorite)
   }
 
+  let history = useHistory()
+  function handleLogout(){
+    fetch("/logout", {method: "DELETE"})
+    .then(r => r.json())
+    .then(() => {
+        history.push("/")
+        setCurrentUser(null)
+        })
+      }
+
 
   useEffect(
     () => {
@@ -45,6 +56,7 @@ const [favorite, setFavorite]= useState([])
 
   return (
     <main>
+      <button id="logout" onClick={handleLogout}>Logout</button>
       <Switch>
         <Route exact path="/">
           <Login setUser={setUser} setCurrentUser={setCurrentUser} user={user}/>

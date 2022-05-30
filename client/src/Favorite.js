@@ -12,7 +12,7 @@ function Favorite({favorite, setDisplayCard}){
                     <FavoriteCard items= {items} setDisplayCard={setDisplayCard} />
                 ))}
             </ul>
-            <NavLink exact to= "/contacts">Contacts</NavLink>
+            <NavLink id="favoriteContacts" exact to= "/contacts">Contacts</NavLink>
         </main>
     )
 

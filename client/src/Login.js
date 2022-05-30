@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import {NavLink,useHistory} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login({setCurrentUser, setUser, user}){
+
+    const [error, setError] = useState([])
 
     let history = useHistory();
     function handleSubmit(e){
@@ -11,38 +15,60 @@ function Login({setCurrentUser, setUser, user}){
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify(user)
         })
-        .then(r => r.json())
-        .then(data => { console.log(data)
-        setCurrentUser(data)
-        history.push("/Contacts")})
+        .then(res => {
+            if(res.ok){
+              res.json()
+              .then(user=>{
+                setCurrentUser(user)
+                toast.success("Login Sucsessful")
+                setTimeout(() => {
+                history.push('/Contacts')
+                }, 2000)
+              })
+              
+            } else {
+              res.json()
+              .then(json => {setError(json.error)
+                toast.error("Login Error")
+            })
+            }
+          })}
+      
+      
         
-    }
+    
 
     function handleUserLogin(e){
         setUser({...user, [e.target.name]: e.target.value})
-          }
-    
-    function handleLogout(){
-        fetch("/logout", {method: "DELETE"})
-        .then(r => r.json())
-        .then(() => {
-            setCurrentUser(null)
-            })
           }
 
 
     return(
        <main>
-        <h1>Welcome Login</h1>
-        <form onSubmit={handleSubmit}>
-          <input onChange={handleUserLogin} name="username"/>
-          <input onChange={handleUserLogin} name="password" type="password"/>
+        <div className="Login">
+        <h1  id="welcomeLogin">Welcome </h1>
+        <form id="loginForm" onSubmit={handleSubmit}>
+          <h2>Username</h2>
+          <input className="loginInput"onChange={handleUserLogin} name="username"/>
+          <h2>Password</h2>
+          <input className="loginInput" onChange={handleUserLogin} name="password" type="password"/>
           <input type="submit"/>
-     
-          
         </form>
-        <NavLink exact to ="/User"> SignUp </NavLink>
-        <button onClick={handleLogout}>Logout</button>
+        <h3> Don't have an Account? </h3>
+        {error?<div>{error}</div>:null}
+        <NavLink id="signUp" exact to ="/User"> Sign Up! </NavLink>
+        </div>
+        <ToastContainer
+            position="bottom-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            />
       </main>
     )
 

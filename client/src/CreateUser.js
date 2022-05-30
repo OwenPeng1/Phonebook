@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import {NavLink} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function CreateUser(){
 const [createUser, setCreateUser] = useState({name:"", username:"", password:""})
@@ -19,23 +21,37 @@ const [createUser, setCreateUser] = useState({name:"", username:"", password:""}
             .then(res => res.json())
             .then(user=>{
                   console.log(user)
+                  toast(`Created ${user.username}`)
                 }) 
             }
     
     return(
-        <body>
-            <h1>Create User</h1>
-            <form onSubmit= {handleSubmit}>
+        <main>
+            <div id="createUser">
+            <h1 id="createUserHeader">Create User</h1>
+            <form id="createForm" onSubmit= {handleSubmit}>
                 <h2>Name</h2>
-                <input onChange ={handleUserInfo} name="name"/>
+                <input className="createInput" onChange ={handleUserInfo} name="name"/>
                 <h2>Username</h2>
-                <input onChange ={handleUserInfo} name="username"/>
+                <input className="createInput"  onChange ={handleUserInfo} name="username"/>
                 <h2>Password</h2>
-                <input onChange ={handleUserInfo} type="password"name="password"/>
+                <input onChange ={handleUserInfo} className="createInput" type="password"name="password"/>
                 <button type="submit">Submit</button>
             </form>
-            <NavLink exact to ="/">Done</NavLink>
-        </body>
+            <NavLink id="doneCreate"exact to ="/">Done</NavLink>
+            </div>
+            <ToastContainer
+                position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
+        </main>
     )
 
 }
