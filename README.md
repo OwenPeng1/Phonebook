@@ -12,5 +12,7 @@ Made Using ReactJS and Ruby on Rails
 
 Use the Username: Owen Password: Peng
 
+Deployed on Heroku: https://contact-book-application1.herokuapp.com/
+
 
 
